@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from 'react-bootstrap/Button';
 import "./Home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [users, setUsers] = useState([]);
@@ -15,6 +16,8 @@ const Home = () => {
         const result = await axios.get("http://localhost:3001/users");
         setUsers(result.data);
     }
+
+    
     return (
         <div className='container'>
             <h1>Home Page</h1>
@@ -37,9 +40,9 @@ const Home = () => {
                             <td>{user.email}</td>
                             <td>
                                 <li>
-                                    <Button variant="success"><a><i className="fa fa-eye"></i></a></Button>
-                                    <Button variant="warning"><a><i className="fa fa-pencil"></i></a></Button>
-                                    <Button variant="danger"><a><i className="fa fa-trash"></i></a></Button>
+                                    <Link variant="success"><a><i className="fa fa-eye"></i></a></Link>
+                                    <Link variant="warning" to={`/users/edit/${user.id}`}><a><i className="fa fa-pencil"></i></a></Link>
+                                    <Link variant="danger" ><a><i className="fa fa-trash"></i></a></Link>
                                 </li>
                             </td>
                         </tr>

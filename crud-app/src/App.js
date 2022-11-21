@@ -5,8 +5,9 @@ import About from "./Components/Pages/About";
 import Contact from "./Components/Pages/Contact";
 import NoPage from "./Components/Pages/NoPage";
 import NavbarPage from "./Components/Layout/NavbarPage";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddUser from "./Components/Users/AddUser";
+import EditUser from "./Components/Users/EditUser";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/users/add" element={<AddUser />} />
+          <Route path="/users/edit/:id" element={<EditUser />} />
           <Route path="*" element={<NoPage />} />
         
       </Routes>
